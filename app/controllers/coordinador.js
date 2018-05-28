@@ -25,7 +25,7 @@ exports.registrarempleado = (req, res) => {
 }
 
 exports.verempleados = (req, res) => {
-        db.query("select idActor, concat(NombreActor,' ', ApellidoPaternoActor, ' ', ApellidoMaternoActor) as nombre, SexoActor, TelefonoActor, PuestoActor from Actor where PuestoActor!='coordinador';", function(err, rows){
+        db.query("select idActor, concat(NombreActor,' ', ApellidoPaternoActor, ' ', ApellidoMaternoActor) as nombre, SexoActor, TelefonoActor, PuestoActor from actor where PuestoActor!='coordinador';", function(err, rows){
             var usuarios = JSON.parse(JSON.stringify(rows));
                   // console.log(usuarios)
             res.render('coordinador/verempleados', {usuarios: usuarios});
