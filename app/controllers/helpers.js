@@ -2,7 +2,7 @@ const db = require('../../config/database');
 
 exports.index = function(req, res) {
         console.log('GET /');
-        //console.log(req.session);
+        console.log(req.session);
         console.log(req.user.cat_roles_idRol);
         db.query("select NombreRol from cat_roles where idRol=?",[req.user.cat_roles_idRol], function(err, rows){
             var rol = JSON.parse(JSON.stringify(rows));
