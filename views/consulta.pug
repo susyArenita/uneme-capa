@@ -1,0 +1,110 @@
+doctype html
+html
+  head
+    title UNEME - CAPA
+    
+    script(src="javascripts/jquery-3.1.1.js")
+    script(type="text/javascript" src="javascripts/materialize.js")
+    script(src="javascripts/metodoPaciente.js")
+    
+      
+    link(rel="stylesheet" type="text/css" href="stylesheets/materialize.css")
+    link(rel="stylesheet" type="text/css" href="fonts/iconfont/material-icons.css")
+      
+    meta(name="viewport" content="width-device-width, initial-scale=1, maxinum-scale=1")
+  
+  body
+    nav(class="green darken-3")
+      div(class="nav-wrapper")
+        a(href="#" class="brand-logo right") UNEME - CAPA
+        ul(id="nav-mobile" class="left hide-on-med-and-down")
+          li
+            a(href="/") Inicio
+          li
+            a(href="/consulta") Consulta de citas
+          li
+            a(href="/login") Inicio de sesión
+    div(class="row padding-top padding-bottom")
+      div(class="col s6 push-s3")
+        h5(class="green darken-2" class="center white-text") Consulta de citas para el paciente
+    div(class="container")
+      br
+      div(class="row padding-top padding-bottom")
+        div(class="z-depth-1 col s12 m10 l10 offset-l1")
+            
+          div(class="row")
+            form(class="col s10 push-s1 pull-s1")
+               div(class="row")
+                 div(class="col l2 m6 s2")
+                   a(class="btn-floating btn-tiny waves-effect waves-light green darken-3 btn modal-trigger" data-target="consultas_paciente")                 
+                    i(class="material-icons") search
+                 div(class="input-field col s6")
+                   input(placeholder="Numero" name="NoExpediente" id="NoExpediente" type="text" class="validate" readonly)                   
+                   label(for="NoExpediente") Número de expediente
+               div(class="row")
+                 div(class="input-field col s12")
+                   input(placeholder="Paciente" id="NombrePaciente" type="text" class="validate" readonly)
+                   label(for="NombrePaciente") Nombre del paciente
+               div(class="row")
+                 div(class="input-field col s12")
+                   input(placeholder="Tratamiento" id="Tratamiento" type="text" class="validate" readonly)
+                   label(for="Tratamiento") Tratamiento
+               div(class="row")
+                 div(class="input-field col s12")
+                   input(placeholder="Psicologo"  id="Psicologo" type="text" class="validate" readonly)
+                   label(for="Psicologo") Psicólogo
+               div(class="row")
+                 div(class="input-field col s6 ")
+                   input(placeholder="Avances" name="Avances" id="Avances" type="text" class="validate" readonly)
+                   label(for="Avances") Sesion(es) registradas
+                 div(class="input-field col s6")
+                   input(placeholder="Total de sesiones del tratamiento" id="TotalSesiones" type="text" class="validate" readonly)
+                   label(for="TotalSesiones") Total de sesiones
+      
+
+            div(class="row padding-top padding-bottom")
+              div(class="z-depth-0 col s12 ")
+                 table(class="light-green accent-1 z-depth-1 col s12 m10 l10 offset-l1")
+                   thead
+                     tr
+                       th Fecha
+                       th Hora
+                       th Área
+                       th Observaciones
+                   tbody(id="body_consultas")
+            div(class="container")
+              div(class="row padding-top padding-bottom")
+                div(class="z-depth-0 col s12 push-s1 ")
+                  //a(class="waves-effect waves-light btn right blue-grey darken-4") Inicio
+                
+                    
+              
+    div(id="consultas_paciente" class="modal modal-fixed-footer")
+      div(class="modal-content")
+        h4 Buscar expediente
+        form(onsubmit="return getConsultas(this);")
+          div(class="input-field z-depth-1")
+            input(id="search" name="NoExpediente" type="search" requiere="true" placeholder="Ingrese el numero de expediente del paciente")
+            label(class="label-icon" for="search") 
+              i(class="material-icons left") search
+            
+        ul(class="collapsible" data-collapsible="accordion" id="consultas_list")
+      div(class="modal-footer")
+        a(class="modal-close waves-effect waves-green btn-flat" data-dismiss="modal") Cerrar
+        
+                
+
+    script.
+          (function($){
+            $(function(){
+            $('.sidenav').sidenav();
+            });
+          })(jQuery);
+          $(document).ready(function(){
+            $('.modal').modal();
+          });
+      
+      
+  
+                
+                

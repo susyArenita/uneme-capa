@@ -1,0 +1,59 @@
+doctype html
+html
+  head
+    title UNEME - CAPA
+    
+    script(src="javascripts/jquery-3.1.1.js")
+    script(type="text/javascript" src="javascripts/materialize.js")
+      
+    link(rel="stylesheet" type="text/css" href="stylesheets/materialize.css")
+    link(rel="stylesheet" type="text/css" href="fonts/iconfont/material-icons.css")
+      
+    meta(name="viewport" content="width-device-width, initial-scale=1, maxinum-scale=1")
+  
+  body()
+    nav(class="green darken-3")
+      div(class="nav-wrapper")
+        a(href="#" class="brand-logo right") UNEME - CAPA
+        ul(id="nav-mobile" class="left hide-on-med-and-down")
+          li
+            a(href="/") Inicio
+          li
+            a(href="/consulta") Consulta de citas
+          li
+            a(href="/login") Inicio de sesión
+    br
+    br
+    div(class="container")
+      if (message.length > 0)
+        input(type="hidden" id="message" value=message)
+        script.
+          error($('#message').val());
+      
+      div(class="col s12 m7")
+        div(class="card horizontal")
+          div(class="card-image col s6 push-3 green darken-3")
+            br
+            br
+            br
+            p(class="white-text center") Inicio de Sesión
+            p(class="white-text center") Sistema para el seguimiento y control de tratamientos clínicos psicológicos del centro de atención primaria en adicciones UNEME-CAPA
+          div(class="card-stacked")
+            div(class="card-content")
+              form(action="/login" method="post")
+                h4(class="center") UNEME-CAPA
+                div(class="col s6 m10 l10 push-6 offset-m1 offset-l1")
+                  img(src="" class="responsive-img logo")
+                  h4(class="Inicio de sesion")
+                div(class="input-field col s10 m8 l8 offset-s1 offset-m2 offset-l2")
+                  i(class="material-icons prefix") account_circle
+                  input(name="usuario" type="text" class="validate" id="usuario")
+                  label(for="usuario") Usuario
+                div(class="input-field col s10 m8 l8 offset-s1 offset-m2 offset-l2")
+                  i(class="material-icons prefix") lock
+                  input(name="password" type="password" class="validate" id="password")
+                  label(for="password") Password
+                div(class="input-field col s10 m8 l8 offset-s1 offset-m2 offset-l2 margin-top margin-bottom")
+                  button(class="waves-effect waves-light right btn color-back  green darken-1" type="submit") Ingresar
+                    i(class="material-icons right") send
+                    

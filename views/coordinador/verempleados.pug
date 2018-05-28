@@ -1,0 +1,96 @@
+doctype html
+html
+  head
+    title UNEME - CAPA
+    
+    script(src="javascripts/jquery-3.1.1.js")
+    script(type="text/javascript" src="javascripts/materialize.min.js")
+    
+    link(rel="stylesheet" type="text/css" href="stylesheets/style.css")
+    link(rel="stylesheet" type="text/css" href="stylesheets/materialize.min.css")
+    link(rel="stylesheet" type="text/css" href="fonts/iconfont/material-icons.css")
+      
+    meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
+    
+  body
+        div(class="z-depth-3 col s12 m10 l10 offset-l1")
+          div(class="row")
+            br
+            div(class="col s2 push-s1")
+              img(src="images/logo.jpg" width="200" height="100" class="")
+            div(class="col s6 ")
+              h4(class="right green-text darken-3") UNEME - CAPA
+          div(class="row")
+            div(class="col s2 push-s1")
+              ul(id="slide-out" class="sidenav")
+                li
+                  div(class="user-view")
+                    div(class="background")
+                      img(src="images/fondo.jpg")
+                    a(href="#user")
+                      img(class="circle" src="images/user_soporte.png")
+                    a(href="#name")
+                      span(class="black-text name") Coordinador
+                    a(href="#email")
+                      span(class="black-text email") prueba_coordinador@gmail.com
+                li
+                  a(href="instrumentosPrincipal") Instrumentos
+                    i(class="material-icons") cloud_download
+                li
+                  a(href="verEmpleados") Ver empleados
+                    i(class="material-icons") account_circle
+                li
+                  a(href="registrar") Registrar empleado
+                    i(class="material-icons") person_add
+                li
+                  a(href="/logout/") Cerrar sesión
+                    i(class="material-icons") exit_to_app
+              a(href="#" data-target="slide-out" class="sidenav-trigger")
+                i(class="material-icons") menu   
+        
+
+        div(class="row padding-top padding-bottom")
+          div(class="col s6 push-s3")
+            h5(class="green darken-2" class="center white-text") Ver empleados
+        div(class="container")
+          div(class="row")
+            div(clas="col s12 m12 l10 offset-l1")
+              h4.center.bold Lista de empleados
+              label(for="aDate" id="aDate" style="font-size: 20px; color: blue; text-bold; font-weight:bold" class="form-control col s3 push-s9")
+            div(class="col l12 m12 s12")    
+              table(class="highlight z-depth-3 centered")
+                thead
+                  tr
+                    th Nombre
+                    th Sexo
+                    th Telefono
+                    th Puesto
+                    th 
+                tbody(id="body_usuarios")
+                  each empleado in usuarios
+                    tr(class="row")
+                      td=empleado.nombre
+                      td=empleado.SexoActor
+                      td=empleado.TelefonoActor
+                      td=empleado.PuestoActor
+                      td
+                        a(href="/editarEmpleado" + empleado.idActor) Editar
+    
+          
+          
+        script.
+              (function($){
+                $(function(){
+                $('.sidenav').sidenav();
+                });
+              })(jQuery);
+              $(document).ready(function(){
+                $('select').formSelect();
+              });
+              $(document).ready(function() {
+                var now = moment();
+                $("#aDate").text(now.format("lll"));
+              });
+              $(document).ready(function(){
+                $('select').formSelect();
+              });

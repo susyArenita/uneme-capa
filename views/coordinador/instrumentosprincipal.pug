@@ -1,0 +1,130 @@
+doctype html
+html
+  head
+    title UNEME - CAPA
+    
+    script(src="javascripts/jquery-3.1.1.js")
+    script(type="text/javascript" src="javascripts/materialize.min.js")
+    
+    link(rel="stylesheet" type="text/css" href="stylesheets/style.css")
+    link(rel="stylesheet" type="text/css" href="stylesheets/materialize.min.css")
+    link(rel="stylesheet" type="text/css" href="fonts/iconfont/material-icons.css")
+      
+    meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
+    
+  body
+        div(class="z-depth-3 col s12 m10 l10 offset-l1")
+          div(class="row")
+            br
+            div(class="col s2 push-s1")
+              img(src="images/logo.jpg" width="200" height="100" class="")
+            div(class="col s6 ")
+              h4(class="right green-text darken-3") UNEME - CAPA
+          div(class="row")
+            div(class="col s2 push-s1")
+              ul(id="slide-out" class="sidenav")
+                li
+                  div(class="user-view")
+                    div(class="background")
+                      img(src="images/fondo.jpg")
+                    a(href="#user")
+                      img(class="circle" src="images/user_soporte.png")
+                    a(href="#name")
+                      span(class="black-text name") Coordinador
+                    a(href="#email")
+                      span(class="black-text email") prueba_coordinador@gmail.com
+                li
+                  a(href="instrumentosPrincipal") Instrumentos
+                    i(class="material-icons") cloud_download
+                li
+                  a(href="verEmpleados") Ver empleados
+                    i(class="material-icons") account_circle
+                li
+                  a(href="registrar") Registrar empleado
+                    i(class="material-icons") person_add
+                li
+                  a(href="/logout/") Cerrar sesión
+                    i(class="material-icons") exit_to_app
+              a(href="#" data-target="slide-out" class="sidenav-trigger")
+                i(class="material-icons" ) menu         
+        
+        div(class="row padding-top padding-bottom")
+          div(class="col s6 push-s3")
+            h5(class="green darken-2" class="center white-text") Instrumentos
+        div(class="container")
+          br
+          div(class="row padding-top padding-bottom")
+            div(class="z-depth-1 col s12 m10 l10 offset-l1")
+                
+              div(class="row")
+                form(class="col s10 push-s1 pull-s1")
+                   div(class="row")
+                     div(class="col s12")
+                        ul(id="tabs-swipe-demo" class="tabs")
+                          li(class="tab col s4")
+                            a(href="#test-swipe-1") Manuales
+                          li(class="tab col s4")
+                            a(href="#test-swipe-2") Guías 
+                          li(class="tab col s4")
+                            a(href="#test-swipe-3") Formatos 
+                        div(id="test-swipe-1" class="col s12 green lighten-5")                          
+                          div(class="row")
+                            i(class="material-icons" style="color:#4fc3f7") cloud_download
+                            a(onclick="window.open('/../instrumentos/Manual IBBP.pdf')" style="padding-top:20px") Manual IBBP
+                          div(class="row")
+                            i(class="material-icons" style="color:#4fc3f7") cloud_download  
+                            a(onclick="window.open('/../instrumentos/Manual IBMF.pdf')" style="padding-top:20px") Manual IBMF
+                          div(class="row")
+                            i(class="material-icons" style="color:#4fc3f7") cloud_download  
+                            a(onclick="window.open('/../instrumentos/Manual IBUM.pdf')" style="padding-top:20px") Manual IBUM
+                          div(class="row")
+                            i(class="material-icons" style="color:#4fc3f7") cloud_download
+                            a(onclick="window.open('/../instrumentos/Manual PIBA.pdf')" style="padding-top:20px") Manual PIBA
+                          div(class="row")
+                            i(class="material-icons" style="color:#4fc3f7") cloud_download  
+                            a(onclick="window.open('/../instrumentos/Manual PPR.pdf')" style="padding-top:20px") Manual PPR
+                        div(id="test-swipe-2" class="col s12 green lighten-5")
+                          div(class="row")
+                            i(class="material-icons" style="color:#4fc3f7") cloud_download  
+                            a(onclick="window.open('/../instrumentos/CBCS.pdf')" style="padding-top:20px") Cuestionario breve de confianza situacional
+                          div(class="row")
+                            i(class="material-icons" style="color:#4fc3f7") cloud_download  
+                            a(onclick="window.open('/../instrumentos/Entrevista inicial.pdf')" style="padding-top:20px") Entrevista inicial
+                          div(class="row")
+                            i(class="material-icons" style="color:#4fc3f7") cloud_download
+                            a(onclick="window.open('/../instrumentos/Formato de consentimiento.pdf')" style="padding-top:20px") Formato de consentimiento
+                          div(class="row")
+                            i(class="material-icons" style="color:#4fc3f7") cloud_download
+                            a(onclick="window.open('/../instrumentos/Historia familiar.pdf')" style="padding-top:20px") Historia familiar
+                        div(id="test-swipe-3" class="col s12 green lighten-5")
+                          div(class="row")
+                            i(class="material-icons" style="color:#4fc3f7") cloud_download
+                            a(onclick="window.open('/../instrumentos/CARTA DE EGRESO VOLUNTARIO.pdf')" style="padding-top:20px") Carta de egreso voluntario
+                          div(class="row")
+                            i(class="material-icons" style="color:#4fc3f7") cloud_download
+                            a(onclick="window.open('/../instrumentos/ENTREVISTA ADOLESCENTES.pdf')" style="padding-top:20px") Entrevista para adolescentes
+                          div(class="row")
+                            i(class="material-icons" style="color:#4fc3f7") cloud_download  
+                            a(onclick="window.open('/../instrumentos/FORMATO DE EGRESO.pdf')" style="padding-top:20px") Formato de egreso
+                          div(class="row")
+                            i(class="material-icons" style="color:#4fc3f7") cloud_download  
+                            a(onclick="window.open('/../instrumentos/HOJA DE RESPUESTA DE TAMIZAJE.pdf')" style="padding-top:20px") Hoja de respuesta de tamizaje
+                          div(class="row")
+                            i(class="material-icons" style="color:#4fc3f7") cloud_download  
+                            a(onclick="window.open('/../instrumentos/NOTA DE SEGUIMIENTO.pdf')" style="padding-top:20px") Nota de seguimiento
+                          div(class="row")
+                            i(class="material-icons" style="color:#4fc3f7") cloud_download  
+                            a(onclick="window.open('/../instrumentos/NOTA DE TRATAMIENTO.pdf')" style="padding-top:20px") Nota de tratamiento  
+      
+        script.
+              (function($){
+                $(function(){
+                $('.sidenav').sidenav();
+                });
+              })(jQuery);
+              $(document).ready(function(){
+                $('select').formSelect();
+              });
+              $(document).ready(function(){
+                $('.tabs').tabs();
+              });

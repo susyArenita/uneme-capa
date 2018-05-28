@@ -1,0 +1,153 @@
+doctype html
+html
+  head
+    title UNEME - CAPA
+    
+    script(src="javascripts/jquery-3.1.1.js")
+    script(type="text/javascript" src="javascripts/materialize.min.js")
+    script(src="javascripts/metodoRecepcion.js")
+    
+    
+    link(rel="stylesheet" type="text/css" href="stylesheets/style.css")
+    link(rel="stylesheet" type="text/css" href="stylesheets/materialize.min.css")
+    link(rel="stylesheet" type="text/css" href="fonts/iconfont/material-icons.css")
+      
+    meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
+    
+  body
+        div(class="z-depth-3 col s12 m10 l10 offset-l1")
+          div(class="row")
+            br
+            div(class="col s2 push-s1")
+              img(src="images/logo.jpg" width="200" height="100" class="")
+            div(class="col s6 ")
+              h4(class="right green-text darken-3") UNEME - CAPA
+          div(class="row")
+            div(class="col s2 push-s1")
+              ul(id="slide-out" class="sidenav")
+                li
+                  div(class="user-view")
+                    div(class="background")
+                      img(src="images/fondo.jpg")
+                    a(href="#user")
+                      img(class="circle" src="images/user_soporte.png")
+                    a(href="#name")
+                      span(class="black-text name") Recepcionista
+                    a(href="#email")
+                      span(class="black-text email") prueba_recepcionista@gmail.com
+                li
+                  a(href="citasprincipal") Ver citas
+                    i(class="material-icons") event
+                li
+                  a(href="agendarcitas") Agendar cita
+                    i(class="material-icons") event_note
+                li
+                  a(href="reasignar") Reasignar psicólogo
+                    i(class="material-icons") low_priority
+                li
+                  a(href="/logout/") Cerrar sesión
+                    i(class="material-icons") exit_to_app
+              a(href="#" data-target="slide-out" class="sidenav-trigger")
+                i(class="material-icons") menu   
+        
+
+        div(class="row padding-top padding-bottom")
+          div(class="col s6 push-s3")
+            h5(class="green darken-2" class="center white-text") Agendar citas del paciente (Recepcionista)
+        div(class="container")
+          br
+          div(class="row padding-top padding-bottom")
+            div(class="z-depth-1 col s12 m10 l10 offset-l1")
+              div(class="row")
+                form(class="col s10 push-s1 pull-s1" method="post" action="/registrarCitaR")
+                  div(class="row")
+                    div(class="col l2 m6 s2")
+                      a(class="btn-floating btn-tiny waves-effect waves-light green darken-3 btn modal-trigger" data-target="paciente_agenda")                 
+                       i(class="material-icons") search
+                    div(class="input-field col s6")
+                      input(placeholder="id" name="idPaciente" id="idPaciente" type="text" class="validate" readonly)                   
+                      label(for="idPaciente") ID paciente                    
+                    //div(class="input-field col s6 pull-6")
+                      input(name="NoExpediente" id="NoExpediente" type="text" class="validate")                   
+                      label(for="NoExpediente") Número de expediente
+                    //div(class="col l2 m6 s2")
+                      a(class="btn-floating btn-tiny waves-effect waves-light green darken-3")                 
+                       i(class="material-icons") search
+                  div(class="row")
+                    div(class="input-field col s12")
+                      input(placeholder="Nombre" id="NombrePaciente" type="text" class="validate" readonly)
+                      label(for="NombrePaciente") Nombre del paciente
+                  div(class="row")
+                    div(class="input-field col s6")
+                      input(placeholder="Telefono" id="Telefono" type="text" class="validate" readonly)
+                      label(for="Telefono") Telefono 
+                    div(class="input-field col s6")
+                      input(placeholder="Expediente" id="NoExpediente" type="text" class="validate" readonly)
+                      label(for="NoExpediente") Número expediente    
+                  div(class="row")                 
+                    div(class="col s6")
+                      label Área de la cita
+                        select(name="Area")
+                          option(value="Trabajo social") Trabajo social
+                          option(value="Consultorio medico") Consultorio médico
+                          option(value="Psicologia") Psicología  
+                    div(class="input-field col s6")
+                      input(name="Fecha" placeholder="aaaa/mm/dd" id="Fecha" type="text" class="validate" required)
+                      label(for="Fecha") Fecha de la cita                                   
+                  div(class="row")                    
+                    //div(class="input-field col s6")                    
+                      label(for="Horarios") Buscar horarios disponibles 
+                        a(class="btn-floating btn-tiny waves-effect waves-light green darken-3")                 
+                          i(class="material-icons") search  
+                    div(class="col s6")
+                      label Hora de la cita
+                        select(name="Hora")
+                          option(value="8:30 am") 8:30 am
+                          option(value="9:30 am") 9:30 am
+                          option(value="11:00 am") 11:00 am
+                          option(value="12:00 pm") 12:00 pm
+                          option(value="1:00 pm") 1:00 pm
+                          option(value="2:30 pm") 2:30 pm
+                          option(value="3:30 pm") 3:30 pm
+                          option(value="5:00 pm") 5:00 pm
+                          option(value="6:00 pm") 6:00 pm
+                          option(value="7:00 pm") 7:00 pm
+                          
+                  div(class="row")                    
+                    div(class="input-field col s12")
+                      textarea(name="Observaciones" id="Observaciones" class="materialize-textarea" required)
+                      label(for="Observaciones") Observaciones                                  
+                  div(class="row")
+                    div(class="col s5 push-s4")
+                      button(class="waves-effect waves-light btn right green darken-1" type="submit") Guardar
+                    div(clas="col s5 pull-s3")
+                      a(class="waves-effect waves-light btn right blue-grey darken-4 ") Inicio 
+    
+        div(id="paciente_agenda" class="modal modal-fixed-footer")
+          div(class="modal-content")
+            h4 Buscar paciente
+            form(onsubmit="return getPaciente(this);")
+              div(class="input-field z-depth-1")
+                input(id="search" name="idPaciente" type="search" requiere="true" placeholder="Ingrese el identificador del paciente")
+                label(class="label-icon" for="search") 
+                  i(class="material-icons left") search
+                
+            ul(class="collapsible" data-collapsible="accordion" id="paciente_list")
+          div(class="modal-footer")
+            a(class="modal-close waves-effect waves-green btn-flat" data-dismiss="modal") Cerrar
+            
+                    
+        script.
+              (function($){
+                $(function(){
+                $('.sidenav').sidenav();
+                });
+              })(jQuery);
+              $(document).ready(function(){
+                $('select').formSelect();
+              });
+              $(document).ready(function(){
+                $('.modal').modal();
+              });
+          
+          

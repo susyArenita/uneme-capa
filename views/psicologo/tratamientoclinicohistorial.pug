@@ -1,0 +1,107 @@
+doctype html
+html
+  head
+    title UNEME - CAPA
+    
+    script(src="javascripts/jquery-3.1.1.js")
+    script(type="text/javascript" src="javascripts/materialize.min.js")
+    script(src="javascripts/metodoPsico.js")
+    
+    
+    link(rel="stylesheet" type="text/css" href="stylesheets/style.css")
+    link(rel="stylesheet" type="text/css" href="stylesheets/materialize.min.css")
+    link(rel="stylesheet" type="text/css" href="fonts/iconfont/material-icons.css")
+      
+    meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
+    
+  body
+        div(class="z-depth-3 col s12 m10 l10 offset-l1")
+          div(class="row")
+            br
+            div(class="col s2 push-s1")
+              img(src="images/logo.jpg" width="200" height="100" class="")
+            div(class="col s6 ")
+              h4(class="right green-text darken-3") UNEME - CAPA
+          div(class="row")
+            div(class="col s2 push-s1")
+              ul(id="slide-out" class="sidenav")
+                li
+                  div(class="user-view")
+                    div(class="background")
+                      img(src="images/fondo.jpg")
+                    a(href="#user")
+                      img(class="circle" src="images/user_soporte.png")
+                    a(href="#name")
+                      span(class="black-text name") Psicologo
+                    a(href="#email")
+                      span(class="black-text email") prueba_psicologo@gmail.com
+                li
+                  a(href="tratamientoPrincipal") Tratamiento clínico
+                    i(class="material-icons") assignment_ind 
+                li
+                  a(href="historial") Historial notas tratamiento
+                    i(class="material-icons") assignment
+                li
+                  a(href="tratamientoRegistro") Registro nota tratamiento
+                    i(class="material-icons") subject
+                li
+                  a(href="egreso") Egreso
+                    i(class="material-icons") assignment_turned_in
+                li
+                  a(href="historialEgresos") Historial egresos
+                    i(class="material-icons") folder_shared
+                li
+                  a(href="citasP") Agendar citas
+                    i(class="material-icons") event_note
+                li
+                  a(href="/logout/") Cerrar sesión
+                    i(class="material-icons") exit_to_app
+              a(href="#" data-target="slide-out" class="sidenav-trigger")
+                i(class="material-icons" ) menu   
+        
+
+        div(class="row padding-top padding-bottom")
+          div(class="col s6 push-s3")
+            h5(class="green darken-2" class="center white-text") Notas de tratamiento clínico
+        div(class="container")
+          div(class="row")
+            div(class="input-field col s6")
+              form(onsubmit="return buscarTratamiento(this);")
+                div(class="input-field z-depth-1")
+                  input(name="NoExpediente" id="search" type="search" placeholder="Ingrese el número de expediente" required="true")
+                  i(class="material-icons") search
+          //div(class="row")
+            div(class="input-field col s12")
+               input(disabled value="Nombre consultado" id="NombrePaciente" type="text" class="validate")
+               label(for="NombrePaciente") Nombre del paciente
+          div(class="row")
+            div(clas="col s12 m12 l10 offset-l1")
+              h4.center.bold Historial
+              label(for="aDate" id="aDate" style="font-size: 20px; color: blue; text-bold; font-weight:bold" class="form-control col s3 push-s9")
+            div(class="col l12 m12 s12")    
+              table(class="highlight z-depth-3 centered")
+                thead
+                  tr
+                    th Id
+                    th Fecha
+                    th No. Sesión
+                    th Resumen                         
+                    th 
+                tbody(id="body_tratamiento")
+                  each nota_tratamiento in tratamiento
+                    tr(class="row")
+                      td=nota_tratamiento.idNotaSeguimiento
+                      td=nota_tratamiento.FechaNota
+                      td=nota_tratamiento.NumeroSesionNotaTratamiento
+                      td=nota_tratamiento.ResumenNotaTratamiento
+                      td
+                        a(href="/tratamientodetalles" + nota_tratamiento.idNotaSeguimiento) Ver detalles
+
+
+        script.
+              (function($){
+                $(function(){
+                $('.sidenav').sidenav();
+                });
+              })(jQuery);
+          
