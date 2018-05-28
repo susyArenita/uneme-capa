@@ -9,7 +9,7 @@ module.exports = function(passport){
 	});
 
 	passport.deserializeUser(function(id, done){
-		db.query("select idSesion, UsuarioSesion, cat_roles_idRol from sesion where sesion.idSesion=?",[id], function(err, rows){
+		db.query("select idSesion, UsuarioSesion, cat_roles_idRol from Sesion where Sesion.idSesion=?",[id], function(err, rows){
 			done(err, rows[0]);
 		});
 	});
@@ -21,7 +21,7 @@ module.exports = function(passport){
 	},
 	function(req, usuario, password, done){
 		console.log('POST /login')
-		db.query("select * from sesion where sesion.UsuarioSesion=?", [usuario], function(err, rows){
+		db.query("select * from Sesion where Sesion.UsuarioSesion=?", [usuario], function(err, rows){
 			if(err) return done(err);
       var isvalidContrasena = (hash, contrasena) =>{
         return bcrypt.compareSync(contrasena, hash);
