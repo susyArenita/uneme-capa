@@ -9,7 +9,7 @@ module.exports = function(passport){
 	});
 
 	passport.deserializeUser(function(id, done){
-		db.query("select idSesion, UsuarioSesion, cat_roles_idRol from sesion where sesion.idSesion=?",[id], function(err, rows){
+		db.query("select idSesion, UsuarioSesion, cat_roles_idRol from sesion where Sesion.idSesion=?",[id], function(err, rows){
 			done(err, rows[0]);
 		});
 	});
