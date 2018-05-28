@@ -21,7 +21,7 @@ module.exports = function(passport){
 	},
 	function(req, usuario, password, done){
 		console.log('POST /login')
-		db.query("select * from Sesion where Sesion.UsuarioSesion=?", [usuario], function(err, rows){
+		db.query("select * from Sesion where sesion.UsuarioSesion=?", [usuario], function(err, rows){
 			if(err) return done(err);
       var isvalidContrasena = (hash, contrasena) =>{
         return bcrypt.compareSync(contrasena, hash);
