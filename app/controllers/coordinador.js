@@ -37,7 +37,7 @@ exports.editarinformacion = (req, res) => {
   data = {}
   db.query("select * from Actor where PuestoActor!='coordinador'", (err, rows) =>{
       data['puesto'] = JSON.parse(JSON.stringify(rows));
-      db.query("select idActor, NombreActor, ApellidoPaternoActor, ApellidoMaternoActor, SexoActor, TelefonoActor, PuestoActor from Actor where idActor=?;",[req.params.idActor], function(err, rows){
+      db.query("select idActor, NombreActor, ApellidoPaternoActor, ApellidoMaternoActor, SexoActor, TelefonoActor, PuestoActor from actor where idActor=?;",[req.params.idActor], function(err, rows){
           data['empleado'] = JSON.parse(JSON.stringify(rows[0]));
           res.render('coordinador/editarinformacion', data);
           console.log(data);
@@ -50,7 +50,7 @@ exports.updateEmpleado = (req, res) =>{
 
   parms = [req.body.Nombre,req.body.ApPaterno,req.body.ApMaterno,req.body.Sexo,req.body.Telefono,req.body.Puesto,req.body.idA];
   console.log(parms);
-  db.query("update Actor set NombreActor=?, ApellidoPaternoActor=?, ApellidoMaternoActor=?, SexoActor=?, TelefonoActor=?, PuestoActor=? where idActor=?;", parms, (err, result) => {
+  db.query("update actor set NombreActor=?, ApellidoPaternoActor=?, ApellidoMaternoActor=?, SexoActor=?, TelefonoActor=?, PuestoActor=? where idActor=?;", parms, (err, result) => {
       console.log(err);
       console.log(result);
       res.redirect('/verEmpleados');
