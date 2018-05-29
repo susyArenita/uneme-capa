@@ -34,6 +34,7 @@ exports.verempleados = (req, res) => {
 
 exports.editarinformacion = (req, res) => {
   console.log('GET /edit_empleado/:id');
+  console.log(req.params.idActor);
   data = {}
   db.query("select * from Actor where PuestoActor!='coordinador'", (err, rows) =>{
       data['puesto'] = JSON.parse(JSON.stringify(rows));
