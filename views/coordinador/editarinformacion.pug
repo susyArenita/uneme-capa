@@ -73,21 +73,21 @@ html
                     div(class="input-field col s6 pull-6")
                       input(name="ApMaterno" id="ApMaterno" type="text" class="validate" value=data.empleado.ApellidoMaternoActor pattern="^([A-Za-zÁÉÍÓÚ]{1}[A-Za-zñáéíóú]+[\\s]*)+$" required)
                       label(for="ApMaterno") Apellido materno
-                    div(class="input-field col s6")
-                      select(name="Sexo")
-                        option(value="" disable selected) Sexo
-                        option(value="femenino") Femenino
-                        option(value="masculino") Masculino                                     
+                    div(class="col s6")
+                      label Sexo
+                        select(name="Sexo")
+                          option(value="femenino") Femenino
+                          option(value="masculino") Masculino                                     
                   div(class="row")
                     div(class="input-field col s6")
                       input(name="Telefono" id="Telefono" type="text" class="validate" value=data.empleado.TelefonoActor pattern="\\d{7,20}" required)
                       label(for="Telefono") Telefono                                                                  
-                    div(class="input-field col s6")
-                      select(name="Puesto")
-                        option(value="" disable selected) Puesto
-                        option(value="psicologo") Psicologo
-                        option(value="trabajador social") Trabajador social
-                        option(value="recepcionista") Recepcionista 
+                    div(class="col s6")
+                      label Puesto
+                        select(name="Puesto")
+                          option(value="psicologo") Psicologo
+                          option(value="trabajador social") Trabajador social
+                          option(value="recepcionista") Recepcionista 
                     div(class="col s5 push-s4")
                       button(class="waves-effect waves-light btn right green darken-1" type="submit") Guardar
                     div(clas="col s5 pull-s3")
