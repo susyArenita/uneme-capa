@@ -95,7 +95,7 @@ exports.notatratamientoregistrar = (req, res) => {
 
 exports.APIBuscarExpediente_Paciente = function(req, res){
         console.log(req.params.expediente);
-        db.query("select idPaciente, concat(nombrePaciente, ' ', ApellidoPaternoPaciente, ' ', ApellidoMaternoPaciente) as nombrePaciente, date_format(FechaNacimientoPaciente,'%e/%m/%Y') as FechaNacimiento, timestampdiff(year,FechaNacimientoPaciente,CURDATE()) as Edad, SexoPaciente, NumeroExpediente, statusPaciente from paciente, expediente where Paciente.idPaciente=Expediente.Paciente_idPaciente and statusExpediente='activo' and NumeroExpediente=?;", [req.params.expediente], function(err, rows){
+        db.query("select idPaciente, concat(nombrePaciente, ' ', ApellidoPaternoPaciente, ' ', ApellidoMaternoPaciente) as nombrePaciente, date_format(FechaNacimientoPaciente,'%e/%m/%Y') as FechaNacimiento, timestampdiff(year,FechaNacimientoPaciente,CURDATE()) as Edad, SexoPaciente, NumeroExpediente, statusPaciente from paciente, expediente where paciente.idPaciente=expediente.Paciente_idPaciente and statusExpediente='activo' and NumeroExpediente=?;", [req.params.expediente], function(err, rows){
           var expediente_DatosPaciente = JSON.parse(JSON.stringify(rows));
           res.status(200).json(expediente_DatosPaciente[0]);
           console.log(expediente_DatosPaciente);
