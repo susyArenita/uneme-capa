@@ -24,7 +24,7 @@ module.exports = function(app, passport, express) {
     router.get('/registrar', isLoggedIn, isAdministrador, coordinadorCTRL.registroempleado);
     router.get('/verEmpleados', isLoggedIn, isAdministrador, coordinadorCTRL.verempleados);
     //Ver informacion del empleado
-    router.get('/editarEmpleado/:idActor', isLoggedIn, isAdministrador, coordinadorCTRL.editarinformacion);
+    router.get('/editarEmpleado:idActor', isLoggedIn, isAdministrador, coordinadorCTRL.editarinformacion);
     router.put('/empleado/editar/:idActor', isLoggedIn, isAdministrador, coordinadorCTRL.updateEmpleado);
 
 
