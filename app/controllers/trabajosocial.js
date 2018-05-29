@@ -2,7 +2,7 @@ const db = require('../../config/database');
 var pdfs =require('./pdfs');
 
 exports.notaseguimientoprincipal = (req, res) => {
-        db.query("select idnotaseguimiento, date_format(FechaNotaSeguimiento,'%e/%m/%Y') as FechaNota, HoraNotaSeguimiento, ResumenNotaSeguimiento, DiagnosticoNotaSeguimiento, PronosticoNotaSeguimiento from notaseguimiento;", function(err, rows){
+        db.query("select idNotaSeguimiento, date_format(FechaNotaSeguimiento,'%e/%m/%Y') as FechaNota, HoraNotaSeguimiento, ResumenNotaSeguimiento, DiagnosticoNotaSeguimiento, PronosticoNotaSeguimiento from notaseguimiento;", function(err, rows){
             var seguimiento = JSON.parse(JSON.stringify(rows));
                   // console.log(usuarios)
             res.render('TrabajoSocial/notaseguimientoprincipal', {seguimiento: seguimiento});
@@ -11,7 +11,7 @@ exports.notaseguimientoprincipal = (req, res) => {
 
 
 exports.APIBuscarFolio = function(req, res){
-            db.query("select idnotaseguimiento, date_format(FechaNotaSeguimiento,'%e/%m/%Y') as FechaNota, HoraNotaSeguimiento, ResumenNotaSeguimiento, DiagnosticoNotaSeguimiento, PronosticoNotaSeguimiento from notaseguimiento where expediente_NumeroExpediente=?;", [req.params.folio], function(err, rows){
+            db.query("select idNotaSeguimiento, date_format(FechaNotaSeguimiento,'%e/%m/%Y') as FechaNota, HoraNotaSeguimiento, ResumenNotaSeguimiento, DiagnosticoNotaSeguimiento, PronosticoNotaSeguimiento from notaseguimiento where expediente_NumeroExpediente=?;", [req.params.folio], function(err, rows){
               var seguimientos = JSON.parse(JSON.stringify(rows));
               res.status(200).json(seguimientos);
               console.log(seguimientos);
