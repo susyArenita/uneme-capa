@@ -14,7 +14,7 @@ exports.registrarempleado = (req, res) => {
       console.log('POST /agregarEmpleado');
       params=[req.body.Nombre, req.body.ApPaterno, req.body.ApMaterno, req.body.Sexo, req.body.Telefono, req.body.Puesto]
       console.log(params);
-      db.query("insert into Actor (NombreActor, ApellidoPaternoActor, ApellidoMaternoActor, SexoActor, TelefonoActor, PuestoActor) values (?,?,?,?,?,?);", params, function(err, rows){
+      db.query("insert into actor (NombreActor, ApellidoPaternoActor, ApellidoMaternoActor, SexoActor, TelefonoActor, PuestoActor) values (?,?,?,?,?,?);", params, function(err, rows){
         if(err){
           console.log(err);
         }else{
