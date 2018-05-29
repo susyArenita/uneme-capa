@@ -227,7 +227,7 @@ exports.registroEgresos = (req, res) => {
             console.log(err);
           }else{
             console.log(req.body.NoExpediente);
-            db.query("select expediente.NumeroExpediente, statusExpediente, paciente.idPaciente, concat(Paciente.NombrePaciente, ' ', ApellidoPaternoPaciente, ' ', ApellidoMaternoPaciente) as nombrePaciente from expediente, paciente where expediente.Paciente_idPaciente=paciente.idPaciente and expediente.NumeroExpediente=?;", req.body.NoExpediente, (err, rows) => {
+            db.query("select expediente.NumeroExpediente, statusExpediente, paciente.idPaciente, concat(paciente.NombrePaciente, ' ', ApellidoPaternoPaciente, ' ', ApellidoMaternoPaciente) as nombrePaciente from expediente, paciente where expediente.Paciente_idPaciente=paciente.idPaciente and expediente.NumeroExpediente=?;", req.body.NoExpediente, (err, rows) => {
               data['inforExpediente']=JSON.parse(JSON.stringify(rows[0]));
               if(err){
                 console.log(err);
